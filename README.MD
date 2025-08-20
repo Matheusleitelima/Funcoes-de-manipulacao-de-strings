@@ -1,11 +1,12 @@
-# Manipulação de Strings em Python
+# Manipulação e Formatação de Strings em Python
 
-Manipular **strings** em Python é essencial, pois textos são frequentemente usados para comunicação entre usuários e sistemas, e também no processamento de dados. Operações comuns incluem:
+Manipular e formatar **strings** em Python é essencial, pois textos são frequentemente usados para comunicação entre usuários e sistemas, e também no processamento de dados. Operações comuns incluem:
 
 * Remover espaços e caracteres desnecessários
 * Alterar maiúsculas/minúsculas
 * Substituir ou contar palavras
 * Dividir e unir textos
+* Formatar variáveis, números e datas
 
 ---
 
@@ -91,15 +92,60 @@ print(texto2)
 # legal
 ```
 
-**Uso comum:** criar strings a partir de listas para salvar em arquivos ou exibir resultados formatados.
+---
+
+## 5. Formatação de Strings (f-strings)
+
+Permite incluir **variáveis e expressões** diretamente dentro de strings de forma clara e legível.
+
+```python
+nome = "Matheus"
+idade = 19
+print(f"Meu nome é {nome} e tenho {idade} anos")
+```
+
+**Funcionalidades avançadas:**
+
+* Chamadas de funções: `{nome.upper()}`
+* Operações matemáticas: `{10 + 5}`
+* Comparações booleanas: `{idade > 18}`
+* Verificação de elementos em listas: `{3 in [1,2,3]}`
+
+**Formatação de largura e alinhamento:**
+
+```python
+frutas = ["maçã", "banana", "laranja"]
+for fruta in frutas:
+    print(f"{fruta:12} -> {len(fruta):3} letras")
+```
+
+**Formatação de floats:**
+
+```python
+pi = 3.14159
+print(f"{pi:.1f}")   # 3.1
+print(f"{pi:6.1f}")  # 3.1 com largura 6
+print(f"{pi:.4f}")   # 3.1416
+```
+
+**Formatação de datas:**
+
+```python
+from datetime import datetime
+
+data = datetime.now()
+print(f"{data}")         # padrão
+print(f"{data:%d/%m/%Y}")  # 13/08/2020
+```
 
 ---
 
 ## Resumo rápido
 
-| Método  | Função                                      | Exemplo                           |
-| ------- | ------------------------------------------- | --------------------------------- |
-| `strip` | Remove espaços e \n do início/fim da string | `" abc\n".strip() → "abc"`        |
-| `count` | Conta ocorrências de uma substring          | `"amo amo".count("amo") → 2`      |
-| `split` | Divide a string em lista                    | `"a b c".split() → ["a","b","c"]` |
-| `join`  | Une elementos de lista em string            | `", ".join(["a","b"]) → "a, b"`   |
+| Método / Recurso | Função                                      | Exemplo                           |
+| ---------------- | ------------------------------------------- | --------------------------------- |
+| `strip`          | Remove espaços e \n do início/fim da string | `" abc\n".strip() → "abc"`        |
+| `count`          | Conta ocorrências de uma substring          | `"amo amo".count("amo") → 2`      |
+| `split`          | Divide a string em lista                    | `"a b c".split() → ["a","b","c"]` |
+| `join`           | Une elementos de lista em string            | `", ".join(["a","b"]) → "a, b"`   |
+| f-strings        | Insere variáveis e expressões em strings    | `f"Nome: {nome}, Idade: {idade}"` |
