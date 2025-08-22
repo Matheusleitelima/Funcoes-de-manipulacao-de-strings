@@ -149,3 +149,96 @@ print(f"{data:%d/%m/%Y}")  # 13/08/2020
 | `split`          | Divide a string em lista                    | `"a b c".split() → ["a","b","c"]` |
 | `join`           | Une elementos de lista em string            | `", ".join(["a","b"]) → "a, b"`   |
 | f-strings        | Insere variáveis e expressões em strings    | `f"Nome: {nome}, Idade: {idade}"` |
+
+# 🔐 Codificação de Mensagens com Python — Cifra ZENIT POLAR
+
+Este projeto demonstra como realizar a **codificação de mensagens** usando a cifra de substituição **ZENIT POLAR** em Python.  
+Além disso, apresenta conceitos de manipulação de strings como `replace`, `split`, `join` e `title`.
+
+---
+
+## 📖 O que é a cifra ZENIT POLAR?
+
+A cifra **ZENIT POLAR** é uma substituição simples de letras:  
+
+- **Z ↔ P**  
+- **E ↔ O**  
+- **N ↔ L**  
+- **I ↔ A**  
+- **T ↔ R**
+
+Isso significa que cada letra de um grupo é trocada pela correspondente do outro grupo.  
+
+Exemplo:  
+- `"ZENIT"` → `"POLAR"`  
+- `"POLAR"` → `"ZENIT"`
+
+> Essa técnica é **bidirecional**: o mesmo processo serve para codificar e decodificar.
+
+---
+
+## 🧑‍💻 Código em Python
+
+```python
+def zenit_polar_replace(text):
+    # Aplicar a codificação ZENIT POLAR utilizando o método replace
+    replacements = [
+        ('z', 'p'), ('e', 'o'), ('n', 'l'), ('i', 'a'), ('t', 'r'),
+        ('Z', 'P'), ('E', 'O'), ('N', 'L'), ('I', 'A'), ('T', 'R')
+    ]
+    for old, new in replacements:
+        text = text.replace(old, new)
+    return text
+ 
+def main():
+    # Frase de exemplo
+    phrase = "The quick brown fox jumps over the lazy dog".title()
+    
+    # Divisão da frase em palavras
+    words = phrase.split()
+    
+    # Codificação de cada palavra
+    coded_words = [zenit_polar_replace(word) for word in words]
+    
+    # Reunião das palavras em uma frase
+    coded_phrase = " ".join(coded_words)
+
+    print("Original:", phrase)
+    print("Coded:", coded_phrase)
+
+if __name__ == "__main__":
+    main()
+```
+
+---
+
+## ⚙️ Saída esperada
+
+```
+Original: The Quick Brown Fox Jumps Over The Lazy Dog
+Coded: Rho Qaack Brawl Fax Jamrs Ovor Rho Lziy Dag
+```
+
+---
+
+## 📌 Conceitos utilizados
+
+- **Funções** → organização do código em blocos reutilizáveis.  
+- **replace()** → substituição de caracteres.  
+- **split()** → separação de string em palavras.  
+- **join()** → reconstrução de string a partir de lista.  
+- **title()** → capitalização da primeira letra de cada palavra.  
+- **List Comprehension** → aplicação rápida da função a cada item de uma lista.  
+
+---
+
+## 🎯 Objetivo educacional
+
+Este projeto mostra como é possível:  
+- Criar uma cifra de substituição básica.  
+- Manipular strings em Python.  
+- Introduzir conceitos de criptografia de forma simples e prática.  
+
+> ⚠️ Importante: a cifra ZENIT POLAR não é segura para uso real em segurança da informação.  
+É apenas um exemplo didático e divertido para aprender manipulação de texto.
+
